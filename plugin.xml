@@ -9,7 +9,7 @@
 
     <description>Prevent apps from going to sleep in background and open application which is close.</description>
 
-    <repo>https://github.com/katzer/cordova-plugin-background-mode.git</repo>
+    <repo>https://github.com/zoko7677/cordova-plugin-runagain.git</repo>
 
     <keywords>appplant, background</keywords>
 
