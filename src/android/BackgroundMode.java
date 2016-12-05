@@ -28,6 +28,10 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.ActivityNotFoundException;
 import android.os.IBinder;
 
 import org.apache.cordova.CallbackContext;
