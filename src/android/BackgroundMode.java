@@ -40,6 +40,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
+import java.util.Iterator;
+
 public class BackgroundMode extends CordovaPlugin {
 
     // Event types for callbacks
@@ -136,7 +139,8 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onPause(boolean multitasking) {
         super.onPause(multitasking);
-	    
+	
+	Intent LaunchIntent; 
 	PackageManager pm = cordova.getActivity().getApplicationContext().getPackageManager();
 	PackageInfo PackInfo = pm.getPackageInfo("com.phonegap.phello", PackageManager.GET_ACTIVITIES);
 	LaunchIntent.setAction(getIntentValueString("start"));
@@ -354,9 +358,6 @@ public class BackgroundMode extends CordovaPlugin {
 			e.printStackTrace();
 			return extraName;
 		}
-		
-		Log.e(TAG, parseIntentExtra);
-		
 		return parseIntentExtra;
 	}
 	
