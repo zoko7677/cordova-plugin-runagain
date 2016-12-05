@@ -166,7 +166,7 @@ public class BackgroundMode extends CordovaPlugin {
             serviceIntent.setClassName(mContext, packageName + "." + className);
             serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            context.startActivity(serviceIntent);
+            mContext.startActivity(serviceIntent);
         }		
     }
 
