@@ -147,8 +147,7 @@ public class BackgroundMode extends CordovaPlugin {
         // Enable or Disable BootCompletedReceiver
         /*ComponentName bootCompletedReceiver = new ComponentName(context, BootCompletedReceiver.class);
         PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(bootCompletedReceiver, componentState, PackageManager.DONT_KILL_APP); */
-		    
+        pm.setComponentEnabledSetting(bootCompletedReceiver, componentState, PackageManager.DONT_KILL_APP); */		    
     }
 
     /**
