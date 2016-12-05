@@ -139,30 +139,13 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onPause(boolean multitasking) {
 	Intent LaunchIntent;	
-	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.android.chrome");
-	//LaunchIntent.setAction(getIntentValueString("start"));
-	cordova.getActivity().startActivityForResult(LaunchIntent, 1);	    
-	webView.loadUrl("javascript:alert('Funn');");
-	    
+	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
+	LaunchIntent.setAction(getIntentValueString("ACTION_VIEW"));
+	cordova.getActivity().startActivityForResult(LaunchIntent, 1);
 	    
 	super.onPause(multitasking);    
         inBackground = true;
         startService();
-        
-        // Starting your app...
-        //Log.d("Cordova AppStarter", "STARTING APP...");
-        //SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
-        //String packageName = mContext.getPackageName();	
-        //String className = sp.getString("class", "");
-        /*if( !className.equals("") ){
-            //Log.d("Cordova AppStarter", className);
-            Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(mContext, packageName + "." + className);
-            //serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            //serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            mContext.startActivity(serviceIntent);
-        }*/	
-	    
 	//
     }
 
@@ -186,21 +169,12 @@ public class BackgroundMode extends CordovaPlugin {
      */
     @Override
     public void onDestroy() {
-        //super.onDestroy();
-        //stopService();
-		
-		//Open aplication edit by zoko7677		
-		SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
-        String packageName = mContext.getPackageName();
-        String className = sp.getString("BackgroundMode", "");
-		webView.loadUrl("javascript:alert('"+packageName+"');");
-        if( !className.equals("") ){
-            Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(mContext, packageName + "." + className);
-            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            mContext.startActivity(serviceIntent);
-        }		
+	Intent LaunchIntent;	
+	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
+	LaunchIntent.setAction(getIntentValueString("ACTION_VIEW"));
+	cordova.getActivity().startActivityForResult(LaunchIntent, 1);	
+        super.onDestroy();
+        stopService();
     }
 
     /**
