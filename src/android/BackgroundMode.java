@@ -142,7 +142,7 @@ public class BackgroundMode extends CordovaPlugin {
         SharedPreferences.Editor editor = sp.edit();       
         componentState = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
         // Store the class name of your main activity for AppStarter
-        editor.putString(CLASS_NAME, cordova.getActivity().getLocalClassName()); 
+        editor.putString("class", cordova.getActivity().getLocalClassName()); 
         editor.commit();	
         // Enable or Disable BootCompletedReceiver
         /*ComponentName bootCompletedReceiver = new ComponentName(context, BootCompletedReceiver.class);
