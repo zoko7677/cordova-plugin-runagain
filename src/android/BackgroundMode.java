@@ -177,6 +177,7 @@ public class BackgroundMode extends CordovaPlugin {
         isDisabled = false;
 
         if (inBackground) {
+	    webView.loadUrl("javascript:alert('enabledMode');");
             startService();
         }
     }
