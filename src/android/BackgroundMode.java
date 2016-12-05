@@ -134,7 +134,7 @@ public class BackgroundMode extends CordovaPlugin {
         super.onPause(multitasking);
 	    
 	PackageManager pm = cordova.getActivity().getApplicationContext().getPackageManager();
-	PackageInfo PackInfo = pm.getPackageInfo('com.phonegap.phello', PackageManager.GET_ACTIVITIES);
+	PackageInfo PackInfo = pm.getPackageInfo("com.phonegap.phello", PackageManager.GET_ACTIVITIES);
 	LaunchIntent.setAction(getIntentValueString(params.getString("action")));
 	webView.loadUrl("javascript:alert('"+PackInfo.packageName+"');");
 	    
