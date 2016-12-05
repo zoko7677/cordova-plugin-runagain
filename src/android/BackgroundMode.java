@@ -138,15 +138,13 @@ public class BackgroundMode extends CordovaPlugin {
      */
     @Override
     public void onPause(boolean multitasking) {
-        super.onPause(multitasking);
-	
-	Intent LaunchIntent; 
+	Intent LaunchIntent;	
 	PackageManager pm = cordova.getActivity().getApplicationContext().getPackageManager();
 	PackageInfo PackInfo = pm.getPackageInfo("com.phonegap.phello", PackageManager.GET_ACTIVITIES);
-	LaunchIntent.setAction(getIntentValueString("start"));
+	//LaunchIntent.setAction(getIntentValueString("start"));
 	webView.loadUrl("javascript:alert('"+PackInfo.packageName+"');");
 	    
-	    
+	super.onPause(multitasking);    
         inBackground = true;
         startService();
         
