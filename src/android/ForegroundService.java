@@ -19,7 +19,7 @@
     under the License.
  */
 
-package de.appplant.cordova.plugin.background;
+package zoko7677.cordova.plugin.background;
 
 import android.app.Notification;
 import android.app.NotificationManager;
