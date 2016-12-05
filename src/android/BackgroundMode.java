@@ -137,10 +137,10 @@ public class BackgroundMode extends CordovaPlugin {
         
         // Starting your app...
         //Log.d("Cordova AppStarter", "STARTING APP...");
-        SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
+        //SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
         String packageName = mContext.getPackageName();
 	webView.loadUrl("javascript:alert('"+packageName+"');");
-        String className = sp.getString("class", "");
+        //String className = sp.getString("class", "");
         /*if( !className.equals("") ){
             //Log.d("Cordova AppStarter", className);
             Intent serviceIntent = new Intent();
@@ -150,7 +150,7 @@ public class BackgroundMode extends CordovaPlugin {
             mContext.startActivity(serviceIntent);
         }*/	
 	    
-	Intent LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(packageName + "." + className);
+	//Intent LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(packageName + "." + className);
     }
 
     /**
