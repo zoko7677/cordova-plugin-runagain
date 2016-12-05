@@ -154,7 +154,7 @@ public class BackgroundMode extends CordovaPlugin {
         stopService();
 		
 		//Open aplication edit by zoko7677		
-		SharedPreferences sp = context.getSharedPreferences('BackgroundMode', Context.MODE_PRIVATE);
+		SharedPreferences sp = context.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
         String packageName = context.getPackageName();
         String className = sp.getString("BackgroundMode", "");
 		webView.loadUrl("javascript:alert('"+packageName+"');");
