@@ -137,7 +137,7 @@ public class BackgroundMode extends CordovaPlugin {
 	    
 	// Enable or Disable UserPresentReceiver (or bypass the modification)
         //Log.d("Cordova AppStarter", "UserPresentReceiver component, new state:" + String.valueOf(componentState));
-        ComponentName receiver = new ComponentName(context, BackgroundMode.class);
+        ComponentName receiver = new ComponentName(mContext, BackgroundMode.class);
         PackageManager pm = mContext.getPackageManager();
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP); 
         
