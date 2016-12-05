@@ -336,4 +336,41 @@ public class BackgroundMode extends CordovaPlugin {
             }
         });
     }
+	
+	/**
+	 * static functions
+	 */
+	static String parseExtraName(String extraName) {
+		String parseIntentExtra = extraName;
+		
+		try {
+			parseIntentExtra = getIntentValueString(extraName);
+			Log.i(TAG, parseIntentExtra);
+		}
+		catch(NoSuchFieldException e) {
+			parseIntentExtra = extraName;	
+		}
+		catch(IllegalAccessException e) {
+			e.printStackTrace();
+			return extraName;
+		}
+		
+		Log.e(TAG, parseIntentExtra);
+		
+		return parseIntentExtra;
+	}
+	
+	static String getIntentValueString(String flag) throws NoSuchFieldException, IllegalAccessException {
+		Field field = Intent.class.getDeclaredField(flag);
+		field.setAccessible(true);
+
+		return (String) field.get(null);
+	}
+	
+	static int getIntentValue(String flag) throws NoSuchFieldException, IllegalAccessException {
+		Field field = Intent.class.getDeclaredField(flag);
+		field.setAccessible(true);
+		
+		return field.getInt(null);
+	}
 }
