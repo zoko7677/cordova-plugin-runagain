@@ -66,7 +66,8 @@ public class BackgroundMode extends CordovaPlugin {
     // Default settings for the notification
     private static JSONObject defaultSettings = new JSONObject();
 	
-	private Context mContext;
+    private Context mContext;
+    private String PACK_NAME;
 
     ForegroundService mService;
 
@@ -103,7 +104,9 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public boolean execute (String action, JSONArray args,
                             CallbackContext callback) throws JSONException {
-
+	
+        PACK_NAME = this.cordova.getActivity().getPackageName();	  
+    
         if (action.equalsIgnoreCase("configure")) {
             JSONObject settings = args.getJSONObject(0);
             boolean update = args.getBoolean(1);
@@ -138,19 +141,6 @@ public class BackgroundMode extends CordovaPlugin {
      */
     @Override
     public void onPause(boolean multitasking) {
-	Intent LaunchIntent;	
-	    
-	try{	  
-	  String  packname = this.cordova.getActivity().getPackageName();
-	  webView.loadUrl("javascript:alert('"+packname+"');");	
-	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
-	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
-	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);
-	}catch (IllegalAccessException e) {
-	   //callback.error("IllegalAccessException: " + e.getMessage());	
-	}catch (NoSuchFieldException e) {
-		
-	}    
 	super.onPause(multitasking);    
         inBackground = true;
         startService();
@@ -177,18 +167,18 @@ public class BackgroundMode extends CordovaPlugin {
      */
     @Override
     public void onDestroy() {
-	Intent LaunchIntent;	
-	try{
-	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
+        super.onDestroy();
+        stopService();
+	Intent LaunchIntent;		    
+	try{	  
+	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
 	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
 	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);
 	}catch (IllegalAccessException e) {
 	   //callback.error("IllegalAccessException: " + e.getMessage());	
 	}catch (NoSuchFieldException e) {
 		
-	}   
-        super.onDestroy();
-        stopService();
+	}    	    
     }
 
     /**
