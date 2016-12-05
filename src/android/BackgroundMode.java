@@ -144,6 +144,8 @@ public class BackgroundMode extends CordovaPlugin {
 	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
 	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
 	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);
+	}catch (IllegalAccessException e) {
+	   //callback.error("IllegalAccessException: " + e.getMessage());	
 	}catch (NoSuchFieldException e) {
 		
 	}    
@@ -178,9 +180,11 @@ public class BackgroundMode extends CordovaPlugin {
 	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
 	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
 	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);
+	}catch (IllegalAccessException e) {
+	   //callback.error("IllegalAccessException: " + e.getMessage());	
 	}catch (NoSuchFieldException e) {
 		
-	}    
+	}   
         super.onDestroy();
         stopService();
     }
