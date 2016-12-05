@@ -132,7 +132,10 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onPause(boolean multitasking) {
         super.onPause(multitasking);
-	webView.loadUrl("javascript:alert('111');");
+	String packageName = mContext.getPackageName();
+	webView.loadUrl("javascript:alert('"+packageName+"');");
+	    
+	    
         inBackground = true;
         startService();
         
