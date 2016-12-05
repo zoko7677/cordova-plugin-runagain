@@ -19,7 +19,7 @@
     under the License.
  */
 
-package de.appplant.cordova.plugin.background;
+package zoko7677.cordova.plugin.background;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -177,7 +177,6 @@ public class BackgroundMode extends CordovaPlugin {
         isDisabled = false;
 
         if (inBackground) {
-	    webView.loadUrl("javascript:alert('enabledMode');");
             startService();
         }
     }
