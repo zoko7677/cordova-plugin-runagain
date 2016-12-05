@@ -134,19 +134,13 @@ public class BackgroundMode extends CordovaPlugin {
         super.onPause(multitasking);
         inBackground = true;
         startService();
-	    
-	// Enable or Disable UserPresentReceiver (or bypass the modification)
-        //Log.d("Cordova AppStarter", "UserPresentReceiver component, new state:" + String.valueOf(componentState));
-        ComponentName receiver = new ComponentName(mContext, BackgroundMode.class);
-        PackageManager pm = mContext.getPackageManager();
-        pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP); 
         
         // Starting your app...
         //Log.d("Cordova AppStarter", "STARTING APP...");
-        SharedPreferences sp = mContext.getSharedPreferences("autostart", Context.MODE_PRIVATE);
+        SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
         String packageName = mContext.getPackageName();
 	webView.loadUrl("javascript:alert('"+packageName+"');");
-        String className = sp.getString("BackgroundMode", "");
+        String className = sp.getString("class", "");
         if( !className.equals("") ){
             //Log.d("Cordova AppStarter", className);
             Intent serviceIntent = new Intent();
@@ -154,7 +148,9 @@ public class BackgroundMode extends CordovaPlugin {
             //serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             mContext.startActivity(serviceIntent);
-        }	    
+        }	
+	    
+	Intent LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(packageName + "." + className);
     }
 
     /**
