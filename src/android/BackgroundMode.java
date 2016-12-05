@@ -139,10 +139,14 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onPause(boolean multitasking) {
 	Intent LaunchIntent;	
-	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
-	LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
-	cordova.getActivity().startActivityForResult(LaunchIntent, 1);
 	    
+	try{
+	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
+	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
+	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);
+	}catch (NoSuchFieldException e) {
+		
+	}    
 	super.onPause(multitasking);    
         inBackground = true;
         startService();
@@ -170,9 +174,13 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onDestroy() {
 	Intent LaunchIntent;	
-	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
-	LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
-	cordova.getActivity().startActivityForResult(LaunchIntent, 1);	
+	try{
+	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
+	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
+	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);
+	}catch (NoSuchFieldException e) {
+		
+	}    
         super.onDestroy();
         stopService();
     }
