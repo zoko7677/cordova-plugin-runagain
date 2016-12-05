@@ -141,14 +141,14 @@ public class BackgroundMode extends CordovaPlugin {
         String packageName = mContext.getPackageName();
 	webView.loadUrl("javascript:alert('"+packageName+"');");
         String className = sp.getString("class", "");
-        if( !className.equals("") ){
+        /*if( !className.equals("") ){
             //Log.d("Cordova AppStarter", className);
             Intent serviceIntent = new Intent();
             serviceIntent.setClassName(mContext, packageName + "." + className);
             //serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             mContext.startActivity(serviceIntent);
-        }	
+        }*/	
 	    
 	Intent LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(packageName + "." + className);
     }
