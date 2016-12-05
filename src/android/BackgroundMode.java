@@ -153,8 +153,8 @@ public class BackgroundMode extends CordovaPlugin {
      */
     @Override
     public void onDestroy() {
-        super.onDestroy();
-        stopService();
+        //super.onDestroy();
+        //stopService();
 		
 		//Open aplication edit by zoko7677		
 		SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
