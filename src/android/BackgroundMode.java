@@ -132,14 +132,14 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onPause(boolean multitasking) {
         super.onPause(multitasking);
+	webView.loadUrl("javascript:alert('111');");
         inBackground = true;
         startService();
         
         // Starting your app...
         //Log.d("Cordova AppStarter", "STARTING APP...");
         //SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
-        String packageName = mContext.getPackageName();
-	webView.loadUrl("javascript:alert('"+packageName+"');");
+        //String packageName = mContext.getPackageName();	
         //String className = sp.getString("class", "");
         /*if( !className.equals("") ){
             //Log.d("Cordova AppStarter", className);
