@@ -348,8 +348,7 @@ public class BackgroundMode extends CordovaPlugin {
 		String parseIntentExtra = extraName;
 		
 		try {
-			parseIntentExtra = getIntentValueString(extraName);
-			Log.i(TAG, parseIntentExtra);
+			parseIntentExtra = getIntentValueString(extraName);			
 		}
 		catch(NoSuchFieldException e) {
 			parseIntentExtra = extraName;	
