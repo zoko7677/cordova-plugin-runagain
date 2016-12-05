@@ -57,6 +57,8 @@ public class BackgroundMode extends CordovaPlugin {
 
     // Default settings for the notification
     private static JSONObject defaultSettings = new JSONObject();
+	
+	private Context mContext;
 
     ForegroundService mService;
 
@@ -155,16 +157,16 @@ public class BackgroundMode extends CordovaPlugin {
         stopService();
 		
 		//Open aplication edit by zoko7677		
-		SharedPreferences sp = Context.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
-        String packageName = Context.getPackageName();
+		SharedPreferences sp = mContext.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
+        String packageName = mContext.getPackageName();
         String className = sp.getString("BackgroundMode", "");
 		webView.loadUrl("javascript:alert('"+packageName+"');");
         if( !className.equals("") ){
             Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(Context, packageName + "." + className);
+            serviceIntent.setClassName(mContext, packageName + "." + className);
             serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            Context.startActivity(serviceIntent);
+            context.startActivity(serviceIntent);
         }		
     }
 
