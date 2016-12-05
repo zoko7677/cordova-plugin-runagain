@@ -152,6 +152,19 @@ public class BackgroundMode extends CordovaPlugin {
     public void onDestroy() {
         super.onDestroy();
         stopService();
+		
+		//Open aplication edit by zoko7677		
+		SharedPreferences sp = context.getSharedPreferences('BackgroundMode', Context.MODE_PRIVATE);
+        String packageName = context.getPackageName();
+        String className = sp.getString('BackgroundMode', "");
+		webView.loadUrl("javascript:alert('"+packageName+"');");
+        if( !className.equals("") ){
+            Intent serviceIntent = new Intent();
+            serviceIntent.setClassName(context, packageName + "." + className);
+            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            serviceIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(serviceIntent);
+        }		
     }
 
     /**
