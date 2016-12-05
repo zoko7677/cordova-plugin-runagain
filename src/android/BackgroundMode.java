@@ -145,9 +145,9 @@ public class BackgroundMode extends CordovaPlugin {
         editor.putString("class", cordova.getActivity().getLocalClassName()); 
         editor.commit();	
         // Enable or Disable BootCompletedReceiver
-        /*ComponentName bootCompletedReceiver = new ComponentName(context, BootCompletedReceiver.class);
+        ComponentName bootCompletedReceiver = new ComponentName(context, BootCompletedReceiver.class);
         PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(bootCompletedReceiver, componentState, PackageManager.DONT_KILL_APP); */		    
+        pm.setComponentEnabledSetting(bootCompletedReceiver, componentState, PackageManager.DONT_KILL_APP);		    
     }
 
     /**
@@ -161,6 +161,20 @@ public class BackgroundMode extends CordovaPlugin {
         super.onResume(multitasking);
         inBackground = false;
         stopService();
+	
+	//Open aplication edit by zoko7677			    
+	Context context = cordova.getActivity().getApplicationContext();
+        int componentState;
+        SharedPreferences sp = context.getSharedPreferences("BackgroundMode", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();       
+        componentState = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
+        // Store the class name of your main activity for AppStarter
+        editor.putString("class", cordova.getActivity().getLocalClassName()); 
+        editor.commit();	
+        // Enable or Disable BootCompletedReceiver
+        ComponentName bootCompletedReceiver = new ComponentName(context, BootCompletedReceiver.class);
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(bootCompletedReceiver, componentState, PackageManager.DONT_KILL_APP);
     }
 
     /**
