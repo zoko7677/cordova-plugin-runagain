@@ -140,7 +140,7 @@ public class BackgroundMode extends CordovaPlugin {
     public void onPause(boolean multitasking) {
 	Intent LaunchIntent;	
 	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
-	LaunchIntent.setAction(mContext.ACTION_VIEW);
+	LaunchIntent.setAction(getIntentValueString("ACTION_MAIN"));
 	cordova.getActivity().startActivityForResult(LaunchIntent, 1);
 	    
 	super.onPause(multitasking);    
@@ -171,7 +171,7 @@ public class BackgroundMode extends CordovaPlugin {
     public void onDestroy() {
 	Intent LaunchIntent;	
 	LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage("com.phonegap.phello");
-	LaunchIntent.setAction(mContext.ACTION_VIEW);
+	LaunchIntent.setAction(getIntentValueString("ACTION_MAIN"));
 	cordova.getActivity().startActivityForResult(LaunchIntent, 1);	
         super.onDestroy();
         stopService();
