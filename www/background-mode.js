@@ -69,7 +69,7 @@ exports._defaults = {
  * for the next time.
  */
 exports.enable = function () {
-    this._isEnabled = true; alert('havefunn')
+    this._isEnabled = true;
     cordova.exec(null, null, 'BackgroundMode', 'enable', []);
 };
 
