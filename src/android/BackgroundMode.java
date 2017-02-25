@@ -173,7 +173,7 @@ public class BackgroundMode extends CordovaPlugin {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        stopService();
+        //stopService();
 	Intent LaunchIntent;		    
 	try{		
 	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
@@ -191,7 +191,7 @@ public class BackgroundMode extends CordovaPlugin {
      */    
     private void restartMode() {
 	webView.loadUrl("javascript:alert('load restart mode');");	
-        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
+        Intent i = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
 	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	cordova.startActivity(i);
     }
