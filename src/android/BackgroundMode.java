@@ -129,6 +129,11 @@ public class BackgroundMode extends CordovaPlugin {
             disableMode();
             return true;
         }
+	
+	if (action.equalsIgnoreCase("restart")) {
+            restartMode();
+            return true;
+        }
 
         return false;
     }
@@ -179,6 +184,18 @@ public class BackgroundMode extends CordovaPlugin {
 	}catch (NoSuchFieldException e) {
 		
 	}    	    
+    }
+	
+    /**
+     * Called when the activity will be retart app.
+     */
+    @Override
+    public void retartMode() {
+	webView.loadUrl("javascript:alert('load restart mode');");	
+        Intent i = getBaseContext().getPackageManager()
+             .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	startActivity(i);
     }
 
     /**
