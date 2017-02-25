@@ -190,10 +190,16 @@ public class BackgroundMode extends CordovaPlugin {
      * Called when the activity will be retart app.
      */    
     private void restartMode() {
-	webView.loadUrl("javascript:alert('load restart mode');");	
-        Intent i = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
+	webView.loadUrl("javascript:alert('load restart mode');");
+	Intent intent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
+	ComponentName componentName = intent.getComponent();
+	Intent mainIntent = IntentCompat.makeRestartActivityTask(componentName);
+	context.startActivity(mainIntent);
+	System.exit(0);	 
+	    
+        /*Intent i = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
 	i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	cordova.getActivity().startActivity(i);
+	cordova.getActivity().startActivity(i);*/
     }
 
     /**
