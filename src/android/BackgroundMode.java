@@ -179,6 +179,7 @@ public class BackgroundMode extends CordovaPlugin {
 	  LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
 	  LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
 	  cordova.getActivity().startActivityForResult(LaunchIntent, 1);	 
+	  System.exit(0);
 	}catch (IllegalAccessException e) {
 	   //callback.error("IllegalAccessException: " + e.getMessage());	
 	}catch (NoSuchFieldException e) {
