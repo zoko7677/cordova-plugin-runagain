@@ -166,11 +166,11 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        String str;
+        /*String str;
         str = "0";
         if(settings.optBoolean("resume"))
            str = "1";
-        Log.d("BG_debug","Loi Code"+str);        
+        Log.d("BG_debug","Loi Code"+str);*/
         if (intent != null && settings.optBoolean("resume")) {
            // PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             //PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
@@ -260,5 +260,12 @@ public class ForegroundService extends Service {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+    }
+	
+    static String getIntentValueString(String flag) throws NoSuchFieldException, IllegalAccessException {
+		Field field = Intent.class.getDeclaredField(flag);
+		field.setAccessible(true);
+
+		return (String) field.get(null);
     }
 }
