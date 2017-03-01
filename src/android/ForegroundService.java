@@ -166,7 +166,7 @@ public class ForegroundService extends Service {
 
         setColor(notification, settings);
         
-        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
 dialog.setCancelable(false);
 dialog.setTitle(intent+" "+settings.optBoolean("resume"));
 dialog.setMessage("Are you sure you want to delete this entry?" );
