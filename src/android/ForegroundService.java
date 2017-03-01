@@ -20,7 +20,6 @@
  */
 
 package zoko7677.cordova.plugin.background;
-import org.apache.cordova.*;
 import android.util.Log;
 
 import android.app.Notification;
@@ -165,7 +164,7 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        Log.v("MYINT",intent+" "+settings.optBoolean("resume"));        
+        Log.v("MYINT",intent);        
         if (intent != null && settings.optBoolean("resume")) {
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
