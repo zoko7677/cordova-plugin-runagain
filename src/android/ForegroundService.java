@@ -163,17 +163,15 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        new alertDialog.Builder(context)
-              .setTitle(intent+" "+settings.optBoolean("resume"))
-              .setMessage("Your Message")
-              .setCancelable(false)
-              .show();        
+        
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+dialog.setCancelable(false);
+dialog.setTitle(intent+" "+settings.optBoolean("resume"));
+dialog.setMessage("Are you sure you want to delete this entry?" );
+final AlertDialog alert = dialog.create();
+alert.show();        
+    
         if (intent != null && settings.optBoolean("resume")) {
-             new alertDialog.Builder(context)
-              .setTitle(1)
-              .setMessage("Your Message")
-              .setCancelable(false)
-              .show();
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
