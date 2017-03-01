@@ -22,6 +22,8 @@
 package zoko7677.cordova.plugin.background;
 import android.util.Log;
 import android.app.Activity;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
 
 import android.app.Notification;
 import android.app.NotificationManager;
