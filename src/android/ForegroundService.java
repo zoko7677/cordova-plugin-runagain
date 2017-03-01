@@ -179,10 +179,10 @@ public class ForegroundService extends Service  {
            // PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             //PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
 	    
-	    Intent LaunchIntent; 	    
+	    Intent LaunchIntent; 	    		
             LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(pkgName);
-	    LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
-	    context.getActivity().startActivityForResult(LaunchIntent, 1);	 
+	    context.startActivityForResult(LaunchIntent, 1);
+	    LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));	    	 
             System.exit(0);
 
             //notification.setContentIntent(contentIntent);
