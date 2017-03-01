@@ -180,7 +180,7 @@ public class ForegroundService extends Service {
 	    Intent LaunchIntent; 	    
             LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 	    LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
-	    this.startActivityForResult(LaunchIntent, 1);	 
+	    context.getActivity().startActivityForResult(LaunchIntent, 1);	 
             System.exit(0);
 
             //notification.setContentIntent(contentIntent);
