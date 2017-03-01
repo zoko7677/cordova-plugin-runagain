@@ -161,7 +161,7 @@ public class ForegroundService extends Service  {
        String pkgName  = context.getPackageName();
        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
-        /*Notification.Builder notification = new Notification.Builder(context)
+       Notification.Builder notification = new Notification.Builder(context)
                 .setContentTitle(settings.optString("title", ""))
                 .setContentText(settings.optString("text", ""))
                 .setTicker(settings.optString("ticker", ""))
@@ -170,6 +170,8 @@ public class ForegroundService extends Service  {
 
         setColor(notification, settings);
 	PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	notification.setContentIntent(contentIntent);
+	    
         /*String str;
         str = "0";
         if(settings.optBoolean("resume"))
@@ -195,8 +197,7 @@ public class ForegroundService extends Service  {
         }
 
         */
-	//return notification.build();
-	return context;
+	return notification.build();	
     }
 
     /**
