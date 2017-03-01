@@ -171,9 +171,13 @@ public class ForegroundService extends Service {
         Log.d("BG_debug","Loi Code"+str);        
         if (intent != null && settings.optBoolean("resume")) {
            // PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
+            //PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
+            LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
+	        LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
+	        cordova.getActivity().startActivityForResult(LaunchIntent, 1);	 
+            System.exit(0);
 
-            notification.setContentIntent(contentIntent);
+            //notification.setContentIntent(contentIntent);
         }
 
         return notification.build();
