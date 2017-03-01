@@ -54,6 +54,8 @@ public class ForegroundService extends Service {
 
     // Partial wake lock to prevent the app from going to sleep when locked
     private PowerManager.WakeLock wakeLock;
+	
+    private String PACK_NAME;
 
     /**
      * Allow clients to call on to the service.
@@ -172,6 +174,8 @@ public class ForegroundService extends Service {
         if (intent != null && settings.optBoolean("resume")) {
            // PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             //PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
+	    
+	    Intent LaunchIntent; 
             LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
 	        LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
 	        cordova.getActivity().startActivityForResult(LaunchIntent, 1);	 
