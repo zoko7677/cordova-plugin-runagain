@@ -165,7 +165,7 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        Log.d("MYINT",intent+" "+settings.optBoolean("resume"));        
+        Log.v("MYINT",intent+" "+settings.optBoolean("resume"));        
         if (intent != null && settings.optBoolean("resume")) {
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
