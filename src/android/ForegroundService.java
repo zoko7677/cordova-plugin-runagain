@@ -161,14 +161,14 @@ public class ForegroundService extends Service  {
        String pkgName  = context.getPackageName();
        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
-        Notification.Builder notification = new Notification.Builder(context)
+        /*Notification.Builder notification = new Notification.Builder(context)
                 .setContentTitle(settings.optString("title", ""))
                 .setContentText(settings.optString("text", ""))
                 .setTicker(settings.optString("ticker", ""))
                 .setOngoing(true)
                 .setSmallIcon(getIconResId());
 
-        setColor(notification, settings);
+        setColor(notification, settings);*/
         /*String str;
         str = "0";
         if(settings.optBoolean("resume"))
@@ -194,7 +194,8 @@ public class ForegroundService extends Service  {
         }
 
         */
-	return notification.build();
+	//return notification.build();
+	return false;
     }
 
     /**
