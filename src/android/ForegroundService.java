@@ -163,9 +163,17 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        Log.e("javascript:alert('Error: "+intent+"-"+settings.optBoolean("resume")+"');");
+        new AlertDialog.Builder(context)
+              .setTitle(intent+" "+settings.optBoolean("resume"))
+              .setMessage("Your Message")
+              .setCancelable(false)
+              .show();        
         if (intent != null && settings.optBoolean("resume")) {
-            Log.e("javascript:alert('1');");
+             new AlertDialog.Builder(context)
+              .setTitle(1)
+              .setMessage("Your Message")
+              .setCancelable(false)
+              .show();
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
