@@ -195,6 +195,8 @@ public class ForegroundService extends Service  {
         }
 
         return notification.build();*/
+	    
+	return 0;
     }
 
     /**
