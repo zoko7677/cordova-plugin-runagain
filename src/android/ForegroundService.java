@@ -163,9 +163,9 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        CordovaWebView.loadUrl("javascript:alert('Error: "+intent+"-"+settings.optBoolean("resume")+"');");
+        Log.e("javascript:alert('Error: "+intent+"-"+settings.optBoolean("resume")+"');");
         if (intent != null && settings.optBoolean("resume")) {
-            CordovaWebView.loadUrl("javascript:alert('1');");
+            Log.e("javascript:alert('1');");
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
