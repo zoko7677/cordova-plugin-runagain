@@ -46,7 +46,7 @@ import java.lang.reflect.Field;
  * something the user is actively aware of and thus not a candidate for killing
  * when low on memory.
  */
-public class ForegroundService extends Service {
+public class ForegroundService extends Service, CordovaPlugin  {
 
     // Fixed ID for the 'foreground' notification
     public static final int NOTIFICATION_ID = -574543954;
