@@ -157,7 +157,7 @@ public class ForegroundService extends Service  {
      *      main activity.
      */
     private Notification makeNotification(JSONObject settings) {
-        Context context = getApplicationContext();
+        /*Context context = getApplicationContext();
         String pkgName  = context.getPackageName();
         Intent intent   = context.getPackageManager()
                 .getLaunchIntentForPackage(pkgName);
@@ -175,7 +175,7 @@ public class ForegroundService extends Service  {
         if(settings.optBoolean("resume"))
            str = "1";
         Log.d("BG_debug","Loi Code"+str);*/
-        if (intent != null && settings.optBoolean("resume")) {
+        /*if (intent != null && settings.optBoolean("resume")) {
            // PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             //PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
 	    
@@ -185,7 +185,7 @@ public class ForegroundService extends Service  {
 	    LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));	    	 
             System.exit(0);*/
 		
-	    Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(pkgName);
+	    /*Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 	    if (launchIntent != null) { 
 	       startActivity(launchIntent);//null pointer check in case package name was not found
 	    }
@@ -194,7 +194,7 @@ public class ForegroundService extends Service  {
             //notification.setContentIntent(contentIntent);
         }
 
-        return notification.build();
+        return notification.build();*/
     }
 
     /**
