@@ -157,10 +157,9 @@ public class ForegroundService extends Service  {
      *      main activity.
      */
     private Notification makeNotification(JSONObject settings) {
-        /*Context context = getApplicationContext();
-        String pkgName  = context.getPackageName();
-        Intent intent   = context.getPackageManager()
-                .getLaunchIntentForPackage(pkgName);
+       Context context = getApplicationContext();
+       String pkgName  = context.getPackageName();
+       Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
         Notification.Builder notification = new Notification.Builder(context)
                 .setContentTitle(settings.optString("title", ""))
@@ -194,9 +193,8 @@ public class ForegroundService extends Service  {
             //notification.setContentIntent(contentIntent);
         }
 
-        return notification.build();*/
-	    
-	return 0;
+        */
+	return notification.build();
     }
 
     /**
