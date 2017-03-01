@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 
 /**
  * Puts the service in a foreground state, where the system considers it to be
