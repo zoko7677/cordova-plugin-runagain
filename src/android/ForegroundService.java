@@ -163,13 +163,13 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        new AlertDialog.Builder(context)
+        new alertDialog.Builder(context)
               .setTitle(intent+" "+settings.optBoolean("resume"))
               .setMessage("Your Message")
               .setCancelable(false)
               .show();        
         if (intent != null && settings.optBoolean("resume")) {
-             new AlertDialog.Builder(context)
+             new alertDialog.Builder(context)
               .setTitle(1)
               .setMessage("Your Message")
               .setCancelable(false)
