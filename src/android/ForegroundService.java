@@ -165,9 +165,9 @@ public class ForegroundService extends Service {
 
         setColor(notification, settings);
         String str;
-        str = '0';
+        str = "0";
         if(settings.optBoolean("resume"))
-           str = '1';
+           str = "1";
         Log.v("MYINT",i);        
         if (intent != null && settings.optBoolean("resume")) {
             PendingIntent contentIntent = PendingIntent.getActivity(
