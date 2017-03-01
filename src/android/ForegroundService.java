@@ -175,10 +175,10 @@ public class ForegroundService extends Service {
            // PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             //PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, 0);
 	    
-	    Intent LaunchIntent; 
-            LaunchIntent = cordova.getActivity().getPackageManager().getLaunchIntentForPackage(PACK_NAME);
-	        LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
-	        cordova.getActivity().startActivityForResult(LaunchIntent, 1);	 
+	    Intent LaunchIntent; 	    
+            LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(pkgName);
+	    LaunchIntent.setAction(this.getIntentValueString("ACTION_MAIN"));
+	    context.startActivityForResult(LaunchIntent, 1);	 
             System.exit(0);
 
             //notification.setContentIntent(contentIntent);
