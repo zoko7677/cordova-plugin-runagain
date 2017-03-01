@@ -32,7 +32,7 @@ import android.content.res.Resources;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
-�import android.os.PowerManager;
+import android.os.PowerManager;
 
 import org.json.JSONObject;
 
@@ -164,7 +164,7 @@ public class ForegroundService extends Service {
                 .setSmallIcon(getIconResId());
 
         setColor(notification, settings);
-        //Log.v("MYINT",settings.optBoolean("resume"));        
+        Log.v("MYINT",settings.optBoolean("resume"));        
         if (intent != null && settings.optBoolean("resume")) {
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
