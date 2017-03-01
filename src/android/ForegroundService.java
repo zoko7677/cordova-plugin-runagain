@@ -168,7 +168,7 @@ public class ForegroundService extends Service {
         str = "0";
         if(settings.optBoolean("resume"))
            str = "1";
-        Log.d("BG_debug",str);        
+        Log.d("BG_debug","Loi Code"+str);        
         if (intent != null && settings.optBoolean("resume")) {
             PendingIntent contentIntent = PendingIntent.getActivity(
                     context, NOTIFICATION_ID, intent,
