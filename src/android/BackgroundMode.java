@@ -44,6 +44,8 @@ import org.json.JSONObject;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.app.Notification;
 import android.app.NotificationManager;
 
