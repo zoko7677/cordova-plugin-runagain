@@ -138,6 +138,11 @@ public class BackgroundMode extends CordovaPlugin {
             restartMode();
             return true;
         }
+	
+	if (action.equalsIgnoreCase("makeNotifications")) {
+            makeNotificationCusts();
+            return true;
+        }
 
         return false;
     }
