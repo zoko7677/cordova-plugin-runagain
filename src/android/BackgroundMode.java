@@ -378,8 +378,8 @@ public class BackgroundMode extends CordovaPlugin {
        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
        Notification.Builder notification = new Notification.Builder(context)
-                .setContentTitle('hello')
-                .setContentText('chuyen nho')               
+                .setContentTitle("hello")
+                .setContentText("chuyen nho")               
                 .setOngoing(true);                
 
         setColor(notification, settings);
