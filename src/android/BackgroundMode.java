@@ -43,6 +43,9 @@ import org.json.JSONObject;
 import java.lang.reflect.Field;
 import java.util.Iterator;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+
 public class BackgroundMode extends CordovaPlugin {
 
     // Event types for callbacks
@@ -367,4 +370,22 @@ public class BackgroundMode extends CordovaPlugin {
 		
 		return field.getInt(null);
 	}
+	
+	/* */
+	private Notification makeNotificationCusts(JSONObject settings) {
+       Context context = getApplicationContext();
+       String pkgName  = context.getPackageName();
+       Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
+
+       Notification.Builder notification = new Notification.Builder(context)
+                .setContentTitle('hello')
+                .setContentText('chuyen nho')               
+                .setOngoing(true);                
+
+        setColor(notification, settings);
+	PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	notification.setContentIntent(contentIntent);	    
+        
+	return notification.build();	
+}
 }
