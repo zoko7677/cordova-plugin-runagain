@@ -385,8 +385,8 @@ public class BackgroundMode extends CordovaPlugin {
         
 	 PendingIntent contentIntent = PendingIntent.getActivity(context, 999999, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	 notification.setContentIntent(contentIntent);	    
-         NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 	 Notification contentNotifi = notification.build();
+         NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);	 
 	 service.notify(999999, contentNotifi);		
     }
 }
