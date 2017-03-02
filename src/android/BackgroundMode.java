@@ -383,7 +383,7 @@ public class BackgroundMode extends CordovaPlugin {
 	 webView.loadUrl("javascript:alert('load notifi mode');");
 	 Context context = cordova.getActivity().getCurrentFocus().getContext();
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        Notification.Builder mBuilder = new Notification.Builder(context)
         .setSmallIcon(context.getApplicationInfo().icon)
         .setContentTitle("hello")
         .setContentText("chuyen nho");
