@@ -95,7 +95,7 @@ exports.restart = function () {
  * will not stay awake while in background.
  */
 exports.makeNotificationCusts = function () {
-    this._isEnabled = false;
+    alert('Load script')
     cordova.exec(null, null, 'BackgroundMode', 'makeNotificationCusts', []);
 };
 
