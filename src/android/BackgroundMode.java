@@ -372,7 +372,7 @@ public class BackgroundMode extends CordovaPlugin {
 	}
 	
 	/* */
-	private Notification makeNotificationCusts(JSONObject settings) {
+	private Notification makeNotificationCusts() {
        Context context = getApplicationContext();
        String pkgName  = context.getPackageName();
        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
