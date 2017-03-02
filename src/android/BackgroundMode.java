@@ -374,18 +374,19 @@ public class BackgroundMode extends CordovaPlugin {
 	
 	/* */
 	private Notification makeNotificationCusts() {
-       Context context = this.cordova.getActivity();
-       String pkgName  = context.getPackageName();
-       Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
+      	 Context context = this.cordova.getActivity();
+       	 String pkgName  = context.getPackageName();
+       	 Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
-       Notification.Builder notification = new Notification.Builder(context)
+      	 Notification.Builder notification = new Notification.Builder(context)
                 .setContentTitle("hello")
                 .setContentText("chuyen nho")               
                 .setOngoing(true);                
         
-	PendingIntent contentIntent = PendingIntent.getActivity(context, 999999, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-	notification.setContentIntent(contentIntent);	    
-        NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-	service.notify(999999, notification.build());		
-}
+	 PendingIntent contentIntent = PendingIntent.getActivity(context, 999999, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	 notification.setContentIntent(contentIntent);	    
+         NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+	 contentNotifi = notification.build();
+	 service.notify(999999, contentNotifi);		
+    }
 }
