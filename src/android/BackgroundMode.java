@@ -383,7 +383,7 @@ public class BackgroundMode extends CordovaPlugin {
                 .setContentText("chuyen nho")               
                 .setOngoing(true);                
         
-	PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	PendingIntent contentIntent = PendingIntent.getActivity(context, 999999, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	notification.setContentIntent(contentIntent);	    
         
 	return notification.build();	
