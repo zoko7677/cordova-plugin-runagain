@@ -33,6 +33,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.ActivityNotFoundException;
 import android.os.IBinder;
+import android.app.PendingIntent;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -373,7 +374,7 @@ public class BackgroundMode extends CordovaPlugin {
 	
 	/* */
 	private Notification makeNotificationCusts() {
-       Context context = getApplicationContext();
+       Context context = this.cordova.getActivity();
        String pkgName  = context.getPackageName();
        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
@@ -381,8 +382,7 @@ public class BackgroundMode extends CordovaPlugin {
                 .setContentTitle("hello")
                 .setContentText("chuyen nho")               
                 .setOngoing(true);                
-
-        setColor(notification, settings);
+        
 	PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	notification.setContentIntent(contentIntent);	    
         
