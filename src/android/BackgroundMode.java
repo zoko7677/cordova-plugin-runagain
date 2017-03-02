@@ -374,6 +374,7 @@ public class BackgroundMode extends CordovaPlugin {
 	
 	/* */
 	private void makeNotificationCusts() {
+	 webView.loadUrl("javascript:alert('load notifi mode');");
       	 Context context = this.cordova.getActivity();
        	 String pkgName  = context.getPackageName();
        	 Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
@@ -388,5 +389,6 @@ public class BackgroundMode extends CordovaPlugin {
 	 Notification contentNotifi = notification.build();
          NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);	 
 	 service.notify(999999, contentNotifi);		
+		webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
 }
