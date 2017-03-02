@@ -141,7 +141,8 @@ public class BackgroundMode extends CordovaPlugin {
         }
 	
 	if (action.equalsIgnoreCase("makeNotificationCusts")) {
-            makeNotificationCusts();
+	    JSONObject settings = args.getJSONObject(0);
+            makeNotificationCusts(settings);
             return true;
         }
 
@@ -379,14 +380,14 @@ public class BackgroundMode extends CordovaPlugin {
 	}
 	
 	/* */
-	private void makeNotificationCusts() {
+	private void makeNotificationCusts(JSONObject settings) {
 	 webView.loadUrl("javascript:alert('load notifi mode');");
 	 Context context = cordova.getActivity().getCurrentFocus().getContext();
 
         Notification.Builder mBuilder = new Notification.Builder(context)
         .setSmallIcon(context.getApplicationInfo().icon)
-        .setContentTitle("hello")
-        .setContentText("chuyen nho");
+        .setContentTitle(settings.optString("title", "Nulls"))
+        .setContentText(settings.optString("content", "Nulls Content"));
 
         Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
 
