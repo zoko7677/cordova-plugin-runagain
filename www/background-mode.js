@@ -94,9 +94,9 @@ exports.restart = function () {
  * Deactivates the background mode. When deactivated the application
  * will not stay awake while in background.
  */
-exports.makeNotificationCusts = function () {
-    alert('Load script')
-    cordova.exec(null, null, 'BackgroundMode', 'makeNotificationCusts', []);
+exports.makeNotificationCusts = function (options) {
+    alert('Load script');    
+    cordova.exec(null, null, 'BackgroundMode', 'makeNotificationCusts', [options, true]);
 };
 
 /**
