@@ -380,7 +380,26 @@ public class BackgroundMode extends CordovaPlugin {
 	/* */
 	private void makeNotificationCusts() {
 	 webView.loadUrl("javascript:alert('load notifi mode');");
-      	 Context context = this.cordova.getActivity();
+	 Context context = cordova.getActivity().getCurrentFocus().getContext();
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        .setSmallIcon(context.getApplicationInfo().icon)
+        .setContentTitle("hello")
+        .setContentText("chuyen nho");
+
+        Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        stackBuilder.addParentStack(cordova.getActivity().getClass());
+        stackBuilder.addNextIntent(resultIntent);
+
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+        
+        NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+	mNotificationManager.notify(999999, mBuilder.build());	
+		
+      	 /*Context context = this.cordova.getActivity();
        	 String pkgName  = context.getPackageName();
        	 Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
 
@@ -393,7 +412,7 @@ public class BackgroundMode extends CordovaPlugin {
 	 notification.setContentIntent(contentIntent);	    
 	 Notification contentNotifi = notification.build();
          NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);	 
-	 service.notify(999999, contentNotifi);		
+	 service.notify(999999, contentNotifi);*/		
 		webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
 }
