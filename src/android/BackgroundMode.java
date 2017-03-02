@@ -141,7 +141,7 @@ public class BackgroundMode extends CordovaPlugin {
         }
 	
 	if (action.equalsIgnoreCase("makeNotificationCusts")) {
-	    webView.loadUrl("javascript:alert('"+args.getJSONObject('title')+"');");	
+	    webView.loadUrl("javascript:alert('"+args.getJSONObject(0)+"');");	
 	    JSONObject settings = args.getJSONObject(0);		
             makeNotificationCusts(settings);
             return true;
