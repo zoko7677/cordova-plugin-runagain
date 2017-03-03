@@ -26,7 +26,7 @@ import android.widget.TextView;
 import android.util.Log ;
 
  
-public class CancelNotification extends CordovaPlugin {
+public class CancelNotification extends Activity {
  
     /*TextView tv = null;
     //@Override
@@ -45,6 +45,6 @@ public class CancelNotification extends CordovaPlugin {
     }*/ 
     public void onCreate(){
         Log.d("NotifiNote","Helo Notifi 1");
-        webView.loadUrl("javascript:alert('load notifi mode');");
+        //webView.loadUrl("javascript:alert('load notifi mode');");
     }  
 }
