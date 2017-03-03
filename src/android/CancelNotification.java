@@ -30,14 +30,14 @@ public class CancelNotification extends CordovaPlugin /*Activity*/{
     TextView tv = null;
     //@Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        /*super.onCreate(savedInstanceState);
         System.out.println("onCreate");        
         Bundle extras = getIntent().getExtras();
  
         if(extras != null){
             String data1 = extras.getString("id");            
             System.out.println("Ddata1 : " + data1);            
-        }
+        }*/
        webView.loadUrl("javascript:alert('hello');");
     }    
 }
