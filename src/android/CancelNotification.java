@@ -24,7 +24,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
  
-public class CancelNotification extends CordovaPlugin{
+public class CancelNotification extends Activity{
  
     TextView tv = null;
     @Override
