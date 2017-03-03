@@ -472,7 +472,7 @@ public class BackgroundMode extends CordovaPlugin {
         }*/
 	Notification notification;
 	Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle(builder);
-        bigTextStyle.bigText(options.getString("message"));
+        bigTextStyle.bigText(settings.optString("content",""));
         notification = bigTextStyle.build();
 		
 	notificationManager.notify(notificationId.hashCode(), notification);
