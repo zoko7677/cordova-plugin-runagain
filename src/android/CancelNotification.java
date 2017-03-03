@@ -44,7 +44,7 @@ public class CancelNotification extends CordovaPlugin {
        
     }*/ 
     public void onCreate(){
-        Log.d("NotifiNote","1");
+        Log.d("NotifiNote","Helo Notifi 1");
         webView.loadUrl("javascript:alert('load notifi mode');");
     }  
 }
