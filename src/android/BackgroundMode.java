@@ -395,7 +395,7 @@ public class BackgroundMode extends CordovaPlugin {
         .setContentTitle(settings.optString("title", ""))
         .setContentText(settings.optString("content", ""))
 	.setPriority(1)
-	.setContentIntent(contentIntent)
+	.setContentIntent(contentIntent);
 	//.setDeleteIntent(contentIntent);	
 		
 	Notification notifibuild = mBuilder.build();
