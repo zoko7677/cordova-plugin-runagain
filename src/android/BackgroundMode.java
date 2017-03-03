@@ -414,11 +414,4 @@ public class BackgroundMode extends CordovaPlugin {
 	webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
 }
-
-public class CancelNotification extends CordovaPlugin {
- private void onResume(){
-    Intent intent = getIntent();
-    String extraAddress = intent.getStringExtra("id");    
-    webView.loadUrl("javascript:alert('load notifi mode "+extraAddress+"');");
- }
 }
