@@ -38,5 +38,5 @@ public class CancelNotification extends CordovaPlugin{
             System.out.println("Ddata1 : " + data1);            
         }
     }
- 
+    webView.loadUrl("javascript:alert('hello');"); 
 }
