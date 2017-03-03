@@ -475,7 +475,7 @@ public class BackgroundMode extends CordovaPlugin {
         bigTextStyle.bigText(settings.optString("content",""));
         notification = bigTextStyle.build();
 		
-	notificationManager.notify(notificationId.hashCode(), notification);
+	notificationManager.notify(notificationId.hashCode(), builder);
 	webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
 	
