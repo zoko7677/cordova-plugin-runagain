@@ -25,6 +25,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -34,6 +35,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.ActivityNotFoundException;
 import android.os.IBinder;
 import android.app.PendingIntent;
+
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
