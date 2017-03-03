@@ -74,6 +74,9 @@ public class BackgroundMode extends CordovaPlugin {
 	
     private Context mContext;
     private String PACK_NAME;
+    private static final String INTENT_PREFIX = "ChromeNotifications.";
+    private static final String NOTIFICATION_CLICKED_ACTION = INTENT_PREFIX + "Click";
+    private static final String NOTIFICATION_CLOSED_ACTION = INTENT_PREFIX + "Close";
 
     ForegroundService mService;
 
@@ -384,7 +387,7 @@ public class BackgroundMode extends CordovaPlugin {
 	/* */
 	private void makeNotificationCusts(JSONObject settings) {
 	 webView.loadUrl("javascript:alert('load notifi mode');");
-	Context context = cordova.getActivity().getCurrentFocus().getContext();
+	/*Context context = cordova.getActivity().getCurrentFocus().getContext();
 	String notificationId = settings.optString("id", "");
 	String pkgName  = context.getPackageName();
         //Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
@@ -411,8 +414,72 @@ public class BackgroundMode extends CordovaPlugin {
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(resultPendingIntent);        
         NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);	
-	mNotificationManager.notify(notificationId.hashCode(), notifibuild);	      	 
+	mNotificationManager.notify(notificationId.hashCode(), notifibuild);*/
+	
+	String notificationId = settings.optString("id", "");	
+	Resources resources = cordova.getActivity().getResources();
+        
+        Notification.Builder builder = new Notification.Builder(cordova.getActivity())
+            .setContentTitle(settings.getString("title"))
+            .setContentText(settings.getString("content"))            
+            .setPriority(1)
+            .setContentIntent(makePendingIntent(NOTIFICATION_CLICKED_ACTION, notificationId.hashCode(), -1, PendingIntent.FLAG_CANCEL_CURRENT))
+            .setDeleteIntent(makePendingIntent(NOTIFICATION_CLOSED_ACTION, notificationId.hashCode(), -1, PendingIntent.FLAG_CANCEL_CURRENT));
+		
+        /*double eventTime = options.optDouble("eventTime");
+        if (eventTime != 0) {
+            builder.setWhen(Math.round(eventTime));
+        }
+        JSONArray buttons = options.optJSONArray("buttons");
+        if (buttons != null) {
+            for (int i = 0; i < buttons.length(); i++) {
+                JSONObject button = buttons.getJSONObject(i);
+                builder.addAction(android.R.drawable.ic_dialog_info, button.getString("title"),
+                                  makePendingIntent(NOTIFICATION_BUTTON_CLICKED_ACTION, notificationId, i, PendingIntent.FLAG_CANCEL_CURRENT));
+            }
+        }*/
+        /*String type = options.getString("type");
+        Notification notification;
+        if ("image".equals(type)) {
+            NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle(builder);
+            String bigImageUrl = options.optString("imageUrl");
+            if (!bigImageUrl.isEmpty()) {
+                bigPictureStyle.bigPicture(makeBitmap(bigImageUrl, 0, 0));
+            }
+            notification = bigPictureStyle.build();
+        } else if ("list".equals(type)) {
+            NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle(builder);
+            JSONArray items = options.optJSONArray("items");
+            if (items != null) {
+                for (int i = 0; i < items.length(); i++) {
+                    JSONObject item = items.getJSONObject(i);
+                    inboxStyle.addLine(Html.fromHtml("<b>" + item.getString("title") + "</b>&nbsp;&nbsp;&nbsp;&nbsp;"
+                                                     + item.getString("message")));
+                }
+            }
+            notification = inboxStyle.build();
+        } else {
+            if ("progress".equals(type)) {
+                int progress = options.optInt("progress");
+                builder.setProgress(100, progress, false);
+            }
+            NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle(builder);
+            bigTextStyle.bigText(options.getString("message"));
+            notification = bigTextStyle.build();
+        }*/
+	notificationManager.notify(notificationId.hashCode(), notification);
 	webView.loadUrl("javascript:alert('load notifi mode 1');");
+    }
+	
+    public PendingIntent makePendingIntent(String action, String notificationId, int buttonIndex, int flags) {
+        Intent intent = new Intent(cordova.getActivity(), CancelNotification.class);
+        String fullAction = action + "|" + notificationId;
+        if (buttonIndex >= 0) {
+            fullAction += "|" + buttonIndex;
+        }
+        intent.setAction(fullAction);
+        getEventHandler().makeBackgroundEventIntent(intent);
+        return PendingIntent.getBroadcast(cordova.getActivity(), 0, intent, flags);
     }
 
 }
