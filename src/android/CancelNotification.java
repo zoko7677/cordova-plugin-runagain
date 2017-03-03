@@ -48,6 +48,6 @@ public class CancelNotification extends BackgroundMode{
     }*/
     
     public void onReceive(Context context, Intent intent) {
-        Log.d("Notifi","78999990");        
+        Log.d("Notifi","88999990");        
     }
 }
