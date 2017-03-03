@@ -422,7 +422,7 @@ public class BackgroundMode extends CordovaPlugin {
 	webView.loadUrl("javascript:alert('load notifi mode2');");
     }
 	
-    public static callJava() {
+    public static <BackgroundMode> callJava() {
 	restartMode();
 	Log.d("Hello","IOP345");
 	return false;
