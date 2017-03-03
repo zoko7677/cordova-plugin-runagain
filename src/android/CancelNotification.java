@@ -28,7 +28,8 @@ import android.app.AlertDialog;
 import android.util.Log ;
 
 public class CancelNotification extends Activity {
-   
+   private WebView webView;
+    
    protected void onCreate(Bundle savedInstanceState) {
         webView.loadUrl("javascript:alert('load notifi mode4');");
         super.onCreate(savedInstanceState);        
