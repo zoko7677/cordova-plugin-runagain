@@ -384,13 +384,21 @@ public class BackgroundMode extends CordovaPlugin {
 	/* */
 	private void makeNotificationCusts(JSONObject settings) {
 	 webView.loadUrl("javascript:alert('load notifi mode');");
-	 Context context = cordova.getActivity().getCurrentFocus().getContext();
-
+	Context context = cordova.getActivity().getCurrentFocus().getContext();
+	String notificationId = settings.optString("id", "");
+	String pkgName  = context.getPackageName();
+        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);	
+	webView.loadUrl("javascript:alert('"+intent+"');");	
+	PendingIntent contentIntent = PendingIntent.getActivity(context, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT);        
+			
         Notification.Builder mBuilder = new Notification.Builder(context)
         .setSmallIcon(context.getApplicationInfo().icon)
         .setContentTitle(settings.optString("title", ""))
         .setContentText(settings.optString("content", ""))
-	.setPriority(1);
+	.setPriority(1)
+	.setContentIntent(contentIntent)
+	.setDeleteIntent(contentIntent);		
+	
 		
 	Notification notifibuild = mBuilder.build();
 	notifibuild.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -405,7 +413,7 @@ public class BackgroundMode extends CordovaPlugin {
         
         NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 	
-	mNotificationManager.notify(settings.optString("id", "").hashCode(), notifibuild);	
+	mNotificationManager.notify(notificationId.hashCode(), notifibuild);	
 		
       	 /*Context context = this.cordova.getActivity();
        	 String pkgName  = context.getPackageName();
@@ -422,5 +430,16 @@ public class BackgroundMode extends CordovaPlugin {
          NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);	 
 	 service.notify(999999, contentNotifi);*/		
 		webView.loadUrl("javascript:alert('load notifi mode 1');");
+    }
+	
+    public PendingIntent makePendingIntent(String action, String notificationId, int buttonIndex, int flags) {
+        Intent intent = new Intent(cordova.getActivity(), cordova.getActivity().getClass());
+        String fullAction = action + "|" + notificationId;
+        if (buttonIndex >= 0) {
+            fullAction += "|" + buttonIndex;
+        }
+        intent.setAction(fullAction);
+        getEventHandler().makeBackgroundEventIntent(intent);
+        return PendingIntent.getBroadcast(cordova.getActivity(), 0, intent, flags);
     }
 }
