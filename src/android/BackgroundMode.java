@@ -441,7 +441,7 @@ public class BackgroundMode extends CordovaPlugin {
             }
         }*/
         /*String type = options.getString("type");
-        Notification notification;
+        
         if ("image".equals(type)) {
             NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle(builder);
             String bigImageUrl = options.optString("imageUrl");
@@ -469,6 +469,7 @@ public class BackgroundMode extends CordovaPlugin {
             bigTextStyle.bigText(options.getString("message"));
             notification = bigTextStyle.build();
         }*/
+	Notification notification;
 	notificationManager.notify(notificationId.hashCode(), notification);
 	webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
