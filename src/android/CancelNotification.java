@@ -40,7 +40,7 @@ public class CancelNotification extends Activity{
             System.out.println("Ddata1 : " + data1);            
         }
         
-        alertView('Hello');
+        alertView("Hello");
        
     }    
     
