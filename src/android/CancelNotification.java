@@ -38,6 +38,6 @@ public class CancelNotification extends CordovaPlugin /*Activity*/{
             String data1 = extras.getString("id");            
             System.out.println("Ddata1 : " + data1);            
         }
-       WebView.loadUrl("javascript:alert('hello');");
+       webView.loadUrl("javascript:alert('hello');");
     }    
 }
