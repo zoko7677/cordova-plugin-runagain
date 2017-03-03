@@ -425,8 +425,8 @@ public class BackgroundMode extends CordovaPlugin {
             .setContentTitle(settings.getString("title"))
             .setContentText(settings.getString("content"))            
             .setPriority(1)
-            .setContentIntent(makePendingIntent(NOTIFICATION_CLICKED_ACTION, notificationId.hashCode(), -1, PendingIntent.FLAG_CANCEL_CURRENT))
-            .setDeleteIntent(makePendingIntent(NOTIFICATION_CLOSED_ACTION, notificationId.hashCode(), -1, PendingIntent.FLAG_CANCEL_CURRENT));
+            .setContentIntent(makePendingIntent(NOTIFICATION_CLICKED_ACTION, notificationId, -1, PendingIntent.FLAG_CANCEL_CURRENT))
+            .setDeleteIntent(makePendingIntent(NOTIFICATION_CLOSED_ACTION, notificationId, -1, PendingIntent.FLAG_CANCEL_CURRENT));
 		
         /*double eventTime = options.optDouble("eventTime");
         if (eventTime != 0) {
