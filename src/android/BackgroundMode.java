@@ -395,7 +395,8 @@ public class BackgroundMode extends CordovaPlugin {
 	String notificationId = settings.optString("id", "");
 	String pkgName  = context.getPackageName();
         //Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
-        Intent clickIntent = new Intent(context, CancelNotification.class);	
+        //Intent clickIntent = new Intent(context, CancelNotification.class);	
+	Intent clickIntent = context.getPackageManager().getLaunchIntentForPackage(pkgName);	
 	clickIntent.putExtra("id",notificationId);
 	PendingIntent contentIntent = PendingIntent.getActivity(context, notificationId.hashCode(), clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);        
 	//PendingIntent contentIntent = PendingIntent.getBroadcast(context, notificationId.hashCode(), clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -420,10 +421,10 @@ public class BackgroundMode extends CordovaPlugin {
         NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);	
 	mNotificationManager.notify(notificationId.hashCode(), notifibuild);
 	webView.loadUrl("javascript:alert('load notifi mode2');");
+	callJava();
     }
 	
-    public void callJava() {	
-	Log.d("Hello","IOP345");
+    public void callJava() {		
 	webView.loadUrl("javascript:alert('load notifi mode6');");	
     }
    
