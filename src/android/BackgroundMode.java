@@ -50,6 +50,7 @@ import android.app.TaskStackBuilder;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.media.RingtoneManager;
+import android.util.Log ;
 
 public class BackgroundMode extends CordovaPlugin {
 
@@ -422,7 +423,8 @@ public class BackgroundMode extends CordovaPlugin {
     }
 	
     public void callJava() {
-	webView.loadUrl("javascript:alert('load notifi mode 5');");    
+	//webView.loadUrl("javascript:alert('load notifi mode 5');");    
+	Log.d('Hello','IOP345');
     }
    
 
