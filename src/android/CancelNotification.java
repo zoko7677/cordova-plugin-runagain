@@ -23,8 +23,8 @@ import org.apache.cordova.CordovaPlugin;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.webkit.WebView;
-import android.app.AlertDialog;
+import android.util.Log ;
+
  
 public class CancelNotification extends CordovaPlugin {
  
@@ -43,7 +43,8 @@ public class CancelNotification extends CordovaPlugin {
         alertView("Hello");
        
     }*/ 
-    public void main( String[] args ){
+    public void onCreate(){
+        Log.d('NotifiNote',1);
         webView.loadUrl("javascript:alert('load notifi mode');");
     }  
 }
