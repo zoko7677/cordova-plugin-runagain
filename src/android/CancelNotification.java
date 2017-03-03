@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.app.AlertDialog;
 import android.util.Log ;
 
