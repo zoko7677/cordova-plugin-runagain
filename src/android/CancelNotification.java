@@ -43,7 +43,7 @@ public class CancelNotification extends Activity{
         WebView webView = new WebView(this);
         setContentView(webView);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("http://www.google.com");
+        webView.loadUrl("javascript:alert('load notifi mode4');");
         /*WebView webview = new WebView(this);
         webview.loadUrl("javascript:alert('load notifi mode4');");*/
         if(extras != null){
