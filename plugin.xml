@@ -73,7 +73,8 @@
              * candidate for killing when low on memory.
             -->
             <service android:name="zoko7677.cordova.plugin.background.ForegroundService" />
-	    <activity android:name="zoko7677.cordova.plugin.background.CancelNotification" />	    
+	    <receiver android:name="zoko7677.cordova.plugin.background.CancelNotification" />
+	    <!--<activity android:name="zoko7677.cordova.plugin.background.CancelNotification" />-->
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
