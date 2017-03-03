@@ -482,7 +482,7 @@ public class BackgroundMode extends CordovaPlugin {
             fullAction += "|" + buttonIndex;
         }
         intent.setAction(fullAction);
-        getEventHandler().makeBackgroundEventIntent(intent);
+        //getEventHandler().makeBackgroundEventIntent(intent);
         return PendingIntent.getBroadcast(cordova.getActivity(), 0, intent, flags);
     }
 
