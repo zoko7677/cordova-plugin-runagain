@@ -74,6 +74,7 @@ public class BackgroundMode extends CordovaPlugin {
     // Default settings for the notification
     private static JSONObject defaultSettings = new JSONObject();
 	
+    private NotificationManager notificationManager;
     private Context mContext;
     private String PACK_NAME;
     private static final String INTENT_PREFIX = "ChromeNotifications.";
