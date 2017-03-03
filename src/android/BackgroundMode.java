@@ -47,6 +47,7 @@ import java.util.Iterator;
 import android.app.TaskStackBuilder;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.media.RingtoneManager;
 
 public class BackgroundMode extends CordovaPlugin {
 
@@ -389,6 +390,7 @@ public class BackgroundMode extends CordovaPlugin {
         .setSmallIcon(context.getApplicationInfo().icon)
         .setContentTitle(settings.optString("title", "Nulls"))
         .setContentText(settings.optString("content", "Nulls Content"));
+	mBuilder.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
 
@@ -400,6 +402,7 @@ public class BackgroundMode extends CordovaPlugin {
         mBuilder.setContentIntent(resultPendingIntent);
         
         NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+	
 	mNotificationManager.notify(999999, mBuilder.build());	
 		
       	 /*Context context = this.cordova.getActivity();
