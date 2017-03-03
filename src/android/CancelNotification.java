@@ -32,7 +32,7 @@ public class CancelNotification extends Activity{
     
    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);        
-        BackgroundMode  inst = new BackgroundMode ();
+        BackgroundMode  inst = new BackgroundMode();
         inst.callJava();
         /*Bundle extras = getIntent().getExtras();
         Log.d("Notifi","7899999");
