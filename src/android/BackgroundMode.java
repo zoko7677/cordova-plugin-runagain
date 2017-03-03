@@ -391,7 +391,7 @@ public class BackgroundMode extends CordovaPlugin {
         .setContentTitle(settings.optString("title", "Nulls"))
         .setContentText(settings.optString("content", "Nulls Content"));
 	
-	notifibuild = mBuilder.build();
+	Notification notifibuild = mBuilder.build();
 	notifibuild.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
