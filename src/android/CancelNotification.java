@@ -49,7 +49,7 @@ public class CancelNotification extends BroadcastReceiver{
     
     public void onReceive(Context context, Intent intent) {
         Log.d("Notifi","78999990");
-        inst = new BackgroundMode();
+        BackgroundMode inst = new BackgroundMode();
         inst.callJava();
     }
 }
