@@ -19,37 +19,28 @@
 package zoko7677.cordova.plugin.background;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.ActivityNotFoundException;
-import android.os.IBinder;
-import android.app.PendingIntent;
-
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Field;
-import java.util.Iterator;
-
-import android.app.TaskStackBuilder;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.media.RingtoneManager;
+import android.os.Bundle;
+import android.widget.TextView;
  
-public class CancelNotification extends CordovaPlugin {
- private void onResume(){
-    Intent intent = getIntent();
-    String extraAddress = intent.getStringExtra("id");    
-    webView.loadUrl("javascript:alert('load notifi mode "+extraAddress+"');");
- }
+public class CancelNotification extends Activity{
+ 
+    TextView tv = null;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        System.out.println("onCreate");
+ 
+        setContentView(R.layout.notification);
+        tv = (TextView)findViewById(R.id.tv);
+ 
+        Bundle extras = getIntent().getExtras();
+ 
+        if(extras != null){
+            String data1 = extras.getString("data1");
+            String data2 = extras.getString("data2");
+            System.out.println("Ddata1 : " + data1);
+            tv.setText("Data Sent from Clicking Notification nData 1 : " + data1 + "nData 2 : " + data2);
+        }
+    }
+ 
 }
