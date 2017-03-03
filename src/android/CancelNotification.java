@@ -31,7 +31,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public class CancelNotification extends BroadcastReceiver{  
+public class CancelNotification extends BackgroundMode{  
     
   /* protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);        
