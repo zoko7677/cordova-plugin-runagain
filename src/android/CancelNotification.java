@@ -18,33 +18,14 @@
 
 package zoko7677.cordova.plugin.background;
 
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log ;
 
- 
-public class CancelNotification extends Activity {
- 
-    /*TextView tv = null;
-    //@Override
-    protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-        System.out.println("onCreate");        
-        Bundle extras = getIntent().getExtras();
- 
-        if(extras != null){
-            String data1 = extras.getString("id");            
-            System.out.println("Ddata1 : " + data1);            
-        }
-        
-        alertView("Hello");
-       
-    }*/ 
+public class CancelNotification extends BroadcastReceiver {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-         Log.d("NotifiNote","Helo Notifi 4444");
-    }    
+    public void onReceive(Context context, Intent intent) {
+        Log.d("NotifiNote","Helo Notifi 4444");
+    }
 }
