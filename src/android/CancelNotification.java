@@ -29,7 +29,13 @@ import android.util.Log ;
 
 public class CancelNotification extends Activity {
    
-    public void onReceive() {
-        Log.d("NotifiNote","Helo Notifi 4444");
+   protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);        
+        Bundle extras = getIntent().getExtras();
+        Log.d("Notifi","7899999");
+        if(extras != null){
+            String data1 = extras.getString("id");                        
+            Log.d("Data Sent from Clicking Notification nData 1 : " + data1);
+        }
     }
 }
