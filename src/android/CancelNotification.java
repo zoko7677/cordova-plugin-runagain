@@ -24,20 +24,36 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.webkit.WebView;
+import android.app.AlertDialog;
  
-public class CancelNotification extends CordovaPlugin /*Activity*/{
+public class CancelNotification extends Activity{
  
     TextView tv = null;
     //@Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*super.onCreate(savedInstanceState);
+       super.onCreate(savedInstanceState);
         System.out.println("onCreate");        
         Bundle extras = getIntent().getExtras();
  
         if(extras != null){
             String data1 = extras.getString("id");            
             System.out.println("Ddata1 : " + data1);            
-        }*/
-       webView.loadUrl("javascript:alert('hello');");
+        }
+        
+        alertView('Hello');
+       
     }    
+    
+    private void alertView( String message ) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+
+        dialog.setTitle( "Hello" )
+    .setIcon(R.drawable.ic_launcher)
+    .setMessage(message)
+    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialoginterface, int i) {                   
+        }               
+        }).show();
+
+   }
 }
