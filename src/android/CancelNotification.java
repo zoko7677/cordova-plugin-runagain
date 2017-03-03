@@ -28,18 +28,12 @@ public class CancelNotification extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("onCreate");
- 
-        setContentView(R.layout.notification);
-        tv = (TextView)findViewById(R.id.tv);
- 
+        System.out.println("onCreate");        
         Bundle extras = getIntent().getExtras();
  
         if(extras != null){
-            String data1 = extras.getString("data1");
-            String data2 = extras.getString("data2");
-            System.out.println("Ddata1 : " + data1);
-            tv.setText("Data Sent from Clicking Notification nData 1 : " + data1 + "nData 2 : " + data2);
+            String data1 = extras.getString("id");            
+            System.out.println("Ddata1 : " + data1);            
         }
     }
  
