@@ -388,8 +388,9 @@ public class BackgroundMode extends CordovaPlugin {
 	String notificationId = settings.optString("id", "");
 	String pkgName  = context.getPackageName();
         //Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
-        //Intent clickIntent = new Intent(context, CancelNotification.class);	
-	PendingIntent contentIntent = PendingIntent.getActivity(context, notificationId.hashCode(), clickIntent(), PendingIntent.FLAG_UPDATE_CURRENT);        
+        Intent clickIntent = new Intent(context, CancelNotification.class);	
+	intent.putExtra("id",notificationId);
+	PendingIntent contentIntent = PendingIntent.getActivity(context, notificationId.hashCode(), clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);        
 				
         Notification.Builder mBuilder = new Notification.Builder(context)
         .setSmallIcon(context.getApplicationInfo().icon)
@@ -404,7 +405,7 @@ public class BackgroundMode extends CordovaPlugin {
         Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addParentStack(cordova.getActivity().getClass());
+	stackBuilder.addParentStack(cordova.getActivity().getClass());		
         stackBuilder.addNextIntent(resultIntent);
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(resultPendingIntent);        
@@ -412,9 +413,12 @@ public class BackgroundMode extends CordovaPlugin {
 	mNotificationManager.notify(notificationId.hashCode(), notifibuild);	      	 
 	webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
-	
-    private void clickIntent() {
-	webView.loadUrl("javascript:alert('load notifi mode 3');");    
-    }
-   
+}
+
+public class CancelNotification extends CordovaPlugin {
+ private void onResume(){
+    Intent intent = getIntent();
+    String extraAddress = intent.getStringExtra("id");    
+    webView.loadUrl("javascript:alert('load notifi mode "+extraAddress+"');");
+ }
 }
