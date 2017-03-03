@@ -160,17 +160,16 @@ public class ForegroundService extends Service  {
        Context context = getApplicationContext();
        String pkgName  = context.getPackageName();
        Intent intent   = context.getPackageManager().getLaunchIntentForPackage(pkgName);
-
+	
+       PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
        Notification.Builder notification = new Notification.Builder(context)
                 .setContentTitle(settings.optString("title", ""))
                 .setContentText(settings.optString("text", ""))
                 .setTicker(settings.optString("ticker", ""))
                 .setOngoing(true)
-                .setSmallIcon(getIconResId());
-
-        setColor(notification, settings);
-	PendingIntent contentIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-	notification.setContentIntent(contentIntent);
+                .setSmallIcon(getIconResId())
+	        .setContentIntent(contentIntent);
+        setColor(notification, settings);	
 	    
         /*String str;
         str = "0";
