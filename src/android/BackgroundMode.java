@@ -424,7 +424,7 @@ public class BackgroundMode extends CordovaPlugin {
 	
     public static int callJava() {	
 	Log.d("Hello","IOP345");
-	this.webView.loadUrl("javascript:alert('load notifi mode6');");
+	super.webView.loadUrl("javascript:alert('load notifi mode6');");
 	return 0;
     }
    
