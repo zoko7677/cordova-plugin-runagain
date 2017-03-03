@@ -49,6 +49,6 @@ public class CancelNotification extends BroadcastReceiver{
     
     public void onReceive(Context context, Intent intent) {
         Log.d("Notifi","78999990");
-        //ChromeNotifications.getEventHandler().handleBroadcast(context, intent);
+        BackgroundMode.callJava();
     }
 }
