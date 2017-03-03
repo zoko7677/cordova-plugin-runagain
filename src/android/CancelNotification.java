@@ -43,7 +43,7 @@ public class CancelNotification extends CordovaPlugin {
         alertView("Hello");
        
     }*/ 
-    public static void main( String[] args ){
+    public void main( String[] args ){
         webView.loadUrl("javascript:alert('load notifi mode');");
     }  
 }
