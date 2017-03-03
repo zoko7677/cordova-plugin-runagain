@@ -18,11 +18,13 @@
 
 package zoko7677.cordova.plugin.background;
 
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugi
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
  
-public class CancelNotification extends Activity{
+public class CancelNotification extends CordovaPlugin{
  
     TextView tv = null;
     @Override
