@@ -405,7 +405,7 @@ public class BackgroundMode extends CordovaPlugin {
         
         NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 	
-	mNotificationManager.notify(settings.optString("id", ""), notifibuild);	
+	mNotificationManager.notify(settings.optString("id", "").hashCode(), notifibuild);	
 		
       	 /*Context context = this.cordova.getActivity();
        	 String pkgName  = context.getPackageName();
