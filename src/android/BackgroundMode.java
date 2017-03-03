@@ -390,7 +390,9 @@ public class BackgroundMode extends CordovaPlugin {
         .setSmallIcon(context.getApplicationInfo().icon)
         .setContentTitle(settings.optString("title", "Nulls"))
         .setContentText(settings.optString("content", "Nulls Content"));
-	mBuilder.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+	
+	notifibuild = mBuilder.build();
+	notifibuild.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
 
@@ -403,7 +405,7 @@ public class BackgroundMode extends CordovaPlugin {
         
         NotificationManager mNotificationManager = (NotificationManager) cordova.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 	
-	mNotificationManager.notify(999999, mBuilder.build());	
+	mNotificationManager.notify(999999, notifibuild);	
 		
       	 /*Context context = this.cordova.getActivity();
        	 String pkgName  = context.getPackageName();
