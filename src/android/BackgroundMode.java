@@ -423,8 +423,8 @@ public class BackgroundMode extends CordovaPlugin {
 	Resources resources = cordova.getActivity().getResources();
         
         Notification.Builder builder = new Notification.Builder(cordova.getActivity())
-            .setContentTitle(settings.getString("title"))
-            .setContentText(settings.getString("content"))            
+            .setContentTitle(settings.optString("title",""))
+            .setContentText(settings.optString("content",""))            
             .setPriority(1)
             .setContentIntent(makePendingIntent(NOTIFICATION_CLICKED_ACTION, notificationId, -1, PendingIntent.FLAG_CANCEL_CURRENT))
             .setDeleteIntent(makePendingIntent(NOTIFICATION_CLOSED_ACTION, notificationId, -1, PendingIntent.FLAG_CANCEL_CURRENT));
