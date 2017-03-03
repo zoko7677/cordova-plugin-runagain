@@ -30,7 +30,7 @@ import android.util.Log ;
 public class CancelNotification extends Activity{
    private WebView webView;
     
-   protected void onCreate(Bundle savedInstanceState) {
+  /* protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);        
         BackgroundMode  inst = new BackgroundMode();
         inst.callJava();
@@ -41,6 +41,11 @@ public class CancelNotification extends Activity{
         if(extras != null){
             String data1 = extras.getString("id");                        
             Log.d("Notifi Alert","Data Sent from Clicking Notification nData 1 : " + data1);
-        }*/
+        }
+    }*/
+    
+    public void onReceive(Context context, Intent intent) {
+        Log.d("Notifi","78999990");
+        //ChromeNotifications.getEventHandler().handleBroadcast(context, intent);
     }
 }
