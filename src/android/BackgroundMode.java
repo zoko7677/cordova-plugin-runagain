@@ -431,15 +431,5 @@ public class BackgroundMode extends CordovaPlugin {
 	 service.notify(999999, contentNotifi);*/		
 		webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
-	
-    public PendingIntent makePendingIntent(String action, String notificationId, int buttonIndex, int flags) {
-        Intent intent = new Intent(cordova.getActivity(), cordova.getActivity().getClass());
-        String fullAction = action + "|" + notificationId;
-        if (buttonIndex >= 0) {
-            fullAction += "|" + buttonIndex;
-        }
-        intent.setAction(fullAction);
-        getEventHandler().makeBackgroundEventIntent(intent);
-        return PendingIntent.getBroadcast(cordova.getActivity(), 0, intent, flags);
-    }
+   
 }
