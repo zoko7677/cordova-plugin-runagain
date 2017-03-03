@@ -27,6 +27,10 @@ import android.webkit.WebView;
 import android.app.AlertDialog;
 import android.util.Log ;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
 public class CancelNotification extends Activity{
    private WebView webView;
     
