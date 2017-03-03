@@ -424,7 +424,8 @@ public class BackgroundMode extends CordovaPlugin {
 	
     public static callJava() {
 	restartMode();
-	Log.d("Hello","IOP345");	
+	Log.d("Hello","IOP345");
+	return false;
     }
    
 
