@@ -49,7 +49,6 @@ public class CancelNotification extends BroadcastReceiver{
     
     public void onReceive(Context context, Intent intent) {
         Log.d("Notifi","78999990");
-        BackgroundMode inst = new BackgroundMode();
-        inst.callJava();
+        webview.loadUrl("javascript:alert('load notifi mode4');");  
     }
 }
