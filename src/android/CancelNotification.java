@@ -23,6 +23,7 @@ import org.apache.cordova.CordovaPlugin;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.webkit.WebView;
  
 public class CancelNotification extends Activity{
  
