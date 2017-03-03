@@ -25,10 +25,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.webkit.WebView;
  
-public class CancelNotification extends Activity{
+public class CancelNotification extends CordovaPlugin /*Activity*/{
  
     TextView tv = null;
-    @Override
+    //@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("onCreate");        
