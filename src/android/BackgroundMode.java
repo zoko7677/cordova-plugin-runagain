@@ -391,7 +391,8 @@ public class BackgroundMode extends CordovaPlugin {
         Intent clickIntent = new Intent(context, CancelNotification.class);	
 	clickIntent.putExtra("id",notificationId);
 	PendingIntent contentIntent = PendingIntent.getActivity(context, notificationId.hashCode(), clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);        
-				
+	PendingIntent.getBroadcast(cordova.getActivity(), 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		
         Notification.Builder mBuilder = new Notification.Builder(context)
         .setSmallIcon(context.getApplicationInfo().icon)
         .setContentTitle(settings.optString("title", ""))
