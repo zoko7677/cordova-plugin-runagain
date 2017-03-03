@@ -40,7 +40,7 @@ public class CancelNotification extends Activity{
         Log.d("Notifi","777777777");
         WebView mWebview  = new WebView(this);
         mWebview.getSettings().setJavaScriptEnabled(true); // enable javascript        
-        mWebview.setWebViewClient(new WebViewClient());
+        //mWebview.setWebViewClient(new WebViewClient());
 
         mWebview.loadUrl("javascript:alerthello();");
         //setContentView(mWebview );
