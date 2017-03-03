@@ -28,7 +28,7 @@ import android.app.AlertDialog;
 import android.util.Log ;
 
 public class CancelNotification extends Activity {
-    @Override
+   
     public void onReceive() {
         Log.d("NotifiNote","Helo Notifi 4444");
     }
