@@ -34,8 +34,8 @@ public class CancelNotification extends Activity {
         super.onCreate(savedInstanceState);        
         Bundle extras = getIntent().getExtras();
         Log.d("Notifi","7899999");
-        
-        super.loadUrl("javascript:alert('load notifi mode4');");        
+        WebView webview = new WebView(this);
+        webview.loadUrl("javascript:alert('load notifi mode4');");        
         if(extras != null){
             String data1 = extras.getString("id");                        
             Log.d("Notifi Alert","Data Sent from Clicking Notification nData 1 : " + data1);
