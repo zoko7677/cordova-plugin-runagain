@@ -35,7 +35,7 @@ public class CancelNotification extends Activity {
         Log.d("Notifi","7899999");
         if(extras != null){
             String data1 = extras.getString("id");                        
-            Log.d("Data Sent from Clicking Notification nData 1 : " + data1);
+            Log.d("Notifi Alert","Data Sent from Clicking Notification nData 1 : " + data1);
         }
     }
 }
