@@ -389,13 +389,11 @@ public class BackgroundMode extends CordovaPlugin {
         Notification.Builder mBuilder = new Notification.Builder(context)
         .setSmallIcon(context.getApplicationInfo().icon)
         .setContentTitle(settings.optString("title", ""))
-        .setContentText(settings.optString("content", ""));
-	
-	int pri = 0;
+        .setContentText(settings.optString("content", ""))
+	.setPriority(0);
+		
 	Notification notifibuild = mBuilder.build();
 	notifibuild.sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-	notifibuild.setPriority(pri);
-
         Intent resultIntent = new Intent(context, cordova.getActivity().getClass());
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
