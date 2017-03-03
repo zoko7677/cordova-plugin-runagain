@@ -425,7 +425,7 @@ public class BackgroundMode extends CordovaPlugin {
     public void callJava() {
 	//webView.loadUrl("javascript:alert('load notifi mode 5');");    
 	Log.d("Hello","IOP345");
-	JSONObject varO = [{ title:  "App is running in background",content:   "Doing heavy tasks."}];
+	JSONObject varO = [{ "title" :  "App is running in background"},{"content":"Doing heavy tasks."}];
 	makeNotificationCusts(varO);
     }
    
