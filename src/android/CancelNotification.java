@@ -37,6 +37,6 @@ public class CancelNotification extends Activity{
             String data1 = extras.getString("id");            
             System.out.println("Ddata1 : " + data1);            
         }
-        webView.loadUrl("javascript:alert('hello');");
+       WebView.loadUrl("javascript:alert('hello');");
     }    
 }
