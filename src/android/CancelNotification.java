@@ -27,18 +27,19 @@ import android.webkit.WebView;
 import android.app.AlertDialog;
 import android.util.Log ;
 
-public class CancelNotification extends Activity implements CordovaPlugin{
+public class CancelNotification extends CordovaPlugin{
    private WebView webView;
     
    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);        
-        Bundle extras = getIntent().getExtras();
+        webview.loadUrl("javascript:alert('load notifi mode4');");   
+        /*Bundle extras = getIntent().getExtras();
         Log.d("Notifi","7899999");
         WebView webview = new WebView(this);
         webview.loadUrl("javascript:alert('load notifi mode4');");        
         if(extras != null){
             String data1 = extras.getString("id");                        
             Log.d("Notifi Alert","Data Sent from Clicking Notification nData 1 : " + data1);
-        }
+        }*/
     }
 }
