@@ -18,14 +18,18 @@
 
 package zoko7677.cordova.plugin.background;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.webkit.WebView;
+import android.app.AlertDialog;
 import android.util.Log ;
 
-public class CancelNotification extends BroadcastReceiver {
+public class CancelNotification extends Activity {
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive() {
         Log.d("NotifiNote","Helo Notifi 4444");
     }
 }
