@@ -39,7 +39,7 @@ public class CancelNotification extends Activity{
         BackgroundMode  inst = new BackgroundMode();
         inst.callJava();
         Bundle extras = getIntent().getExtras();
-        Log.d("Notifi","7899999");
+        Log.d("Notifi","777777777");
         WebView webView = new WebView(this);
         webView.loadUrl("javascript:alert('load notifi mode4');");
         /*WebView webview = new WebView(this);
