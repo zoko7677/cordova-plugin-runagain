@@ -413,5 +413,5 @@ public class BackgroundMode extends CordovaPlugin {
 	mNotificationManager.notify(notificationId.hashCode(), notifibuild);	      	 
 	webView.loadUrl("javascript:alert('load notifi mode 1');");
     }
-}
+
 }
