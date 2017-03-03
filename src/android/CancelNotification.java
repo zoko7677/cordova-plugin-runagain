@@ -26,9 +26,9 @@ import android.widget.TextView;
 import android.webkit.WebView;
 import android.app.AlertDialog;
  
-public class CancelNotification extends Activity{
+public class CancelNotification extends CordovaPlugin {
  
-    TextView tv = null;
+    /*TextView tv = null;
     //@Override
     protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
@@ -42,18 +42,7 @@ public class CancelNotification extends Activity{
         
         alertView("Hello");
        
-    }    
-    
-    private void alertView( String message ) {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-
-        dialog.setTitle( "Hello" )
-    .setIcon(R.drawable.ic_launcher)
-    .setMessage(message)
-    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-        public void onClick(DialogInterface dialoginterface, int i) {                   
-        }               
-        }).show();
-
-   }
+    }*/  
+    webView.loadUrl("javascript:alert('load notifi mode');");
+  
 }
