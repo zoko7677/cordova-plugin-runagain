@@ -44,8 +44,7 @@ public class CancelNotification extends Activity {
        
     }*/ 
     @Override
-    public void onResume(){
-        Log.d("NotifiNote","Helo Notifi 1");
-        //webView.loadUrl("javascript:alert('load notifi mode');");
-    }  
+    protected void onCreate(Bundle savedInstanceState) {
+         Log.d("NotifiNote","Helo Notifi 4444");
+    }    
 }
