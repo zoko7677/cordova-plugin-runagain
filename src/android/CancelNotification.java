@@ -30,6 +30,7 @@ import android.util.Log ;
 public class CancelNotification extends Activity {
    
    protected void onCreate(Bundle savedInstanceState) {
+        webView.loadUrl("javascript:alert('load notifi mode4');");
         super.onCreate(savedInstanceState);        
         Bundle extras = getIntent().getExtras();
         Log.d("Notifi","7899999");
