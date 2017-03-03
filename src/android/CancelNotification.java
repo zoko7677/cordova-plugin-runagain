@@ -43,7 +43,8 @@ public class CancelNotification extends Activity {
         alertView("Hello");
        
     }*/ 
-    public void onCreate(){
+    @Override
+    public void onResume(){
         Log.d("NotifiNote","Helo Notifi 1");
         //webView.loadUrl("javascript:alert('load notifi mode');");
     }  
