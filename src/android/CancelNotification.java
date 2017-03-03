@@ -27,7 +27,7 @@ import android.webkit.WebView;
 import android.app.AlertDialog;
 import android.util.Log ;
 
-public class CancelNotification extends Activity, CordovaPlugin{
+public class CancelNotification extends Activity implements CordovaPlugin{
    private WebView webView;
     
    protected void onCreate(Bundle savedInstanceState) {
