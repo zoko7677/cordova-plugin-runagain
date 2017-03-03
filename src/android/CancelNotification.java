@@ -31,23 +31,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public class CancelNotification extends BackgroundMode{  
+public class CancelNotification extends Activity{  
     
-  /* protected void onCreate(Bundle savedInstanceState) {
+   protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);        
         BackgroundMode  inst = new BackgroundMode();
         inst.callJava();
-        /*Bundle extras = getIntent().getExtras();
+        Bundle extras = getIntent().getExtras();
         Log.d("Notifi","7899999");
-        WebView webview = new WebView(this);
-        webview.loadUrl("javascript:alert('load notifi mode4');");        
+        /*WebView webview = new WebView(this);
+        webview.loadUrl("javascript:alert('load notifi mode4');");*/
         if(extras != null){
             String data1 = extras.getString("id");                        
             Log.d("Notifi Alert","Data Sent from Clicking Notification nData 1 : " + data1);
         }
-    }*/
-    
-    public void onReceive(Context context, Intent intent) {
-        Log.d("Notifi","88999990");        
-    }
+    }   
 }
