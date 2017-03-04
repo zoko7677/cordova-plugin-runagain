@@ -74,7 +74,7 @@
             -->
             <service android:name="zoko7677.cordova.plugin.background.ForegroundService" />
 	    <!--<receiver android:name="zoko7677.cordova.plugin.background.CancelNotification" />-->
-	    <activity android:name="zoko7677.cordova.plugin.background.CancelNotification" />
+	    <!--<activity android:name="zoko7677.cordova.plugin.background.CancelNotification" />-->
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -88,11 +88,6 @@
         <source-file
             src="src/android/ForegroundService.java"
             target-dir="src/de/appplant/cordova/plugin/background" />
-	    
-	<source-file
-            src="src/android/CancelNotification.java"
-            target-dir="src/de/appplant/cordova/plugin/background" />
-
     </platform>
 
     <!-- wp8 -->
